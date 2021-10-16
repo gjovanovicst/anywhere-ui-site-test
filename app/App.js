@@ -58,7 +58,7 @@ const router = async () => {
   const potentialMatches = routes.map((route) => {
     return {
       route: route,
-      result: location.hash.replace("#", "").match(pathToRegex(route.path)),
+      result: location.hash.replace(/[^#]*/, "").match(pathToRegex(route.path)),
     };
   });
 
