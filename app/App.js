@@ -58,7 +58,7 @@ const router = async () => {
   const potentialMatches = routes.map((route) => {
     return {
       route: route,
-      result: location.hash.replace(/[^#]*/, "").match(pathToRegex(route.path)),
+      result: location.hash.replace("#", "").match(pathToRegex(route.path)),
     };
   });
 
@@ -75,15 +75,16 @@ const router = async () => {
   const view = new match.route.view(getParams(match));
 
   const menuItems = document.querySelectorAll("[data-link]");
-  console.log(location)
   menuItems.forEach(function (item) {
-    if (location.pathname === "/") {
-      item.classList.remove("active");
-      if (location.hash === '') {
-        menuItems[0].classList.add("active");
-      } else if (item.href.indexOf(location.hash.replace('#', "")) > -1)
-        item.classList.add("active");
+    // console.log(location.hash.replace('#', ""), item)
+    // if (location.pathname === "/") {
+    item.classList.remove("active");
+    if (location.hash === '') {
+      menuItems[0].classList.add("active");
+    } else if (item.href.indexOf(location.hash.replace('#', "")) > -1) {
+      item.classList.add("active");
     }
+    // }
   });
 
   document.querySelector("#app").innerHTML = await view.getHtml();
