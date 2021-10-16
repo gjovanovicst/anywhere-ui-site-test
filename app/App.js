@@ -33,23 +33,23 @@ const router = async () => {
       view: GetStarted,
     },
     {
-      path: "/#/listbox",
+      path: "/listbox",
       view: Listbox,
     },
     {
-      path: "/#/dropdown",
+      path: "/dropdown",
       view: Dropdown,
     },
     {
-      path: "/#/virtual-scroller",
+      path: "/virtual-scroller",
       view: VirtualScroller,
     },
     {
-      path: "/#/input-text",
+      path: "/input-text",
       view: InputText,
     },
     {
-      path: "/#/checkbox",
+      path: "/checkbox",
       view: Checkbox,
     },
   ];
@@ -58,7 +58,7 @@ const router = async () => {
   const potentialMatches = routes.map((route) => {
     return {
       route: route,
-      result: location.pathname.match(pathToRegex(route.path)),
+      result: location.hash.replace("#", "").match(pathToRegex(route.path)),
     };
   });
 
@@ -72,14 +72,16 @@ const router = async () => {
       result: [location.pathname],
     };
   }
-
   const view = new match.route.view(getParams(match));
 
   const menuItems = document.querySelectorAll("[data-link]");
+  console.log(location)
   menuItems.forEach(function (item) {
-    if (location.pathname !== "/") {
+    if (location.pathname === "/") {
       item.classList.remove("active");
-      if (item.href.indexOf(location.pathname) > -1)
+      if (location.hash === '') {
+        menuItems[0].classList.add("active");
+      } else if (item.href.indexOf(location.hash.replace('#', "")) > -1)
         item.classList.add("active");
     }
   });
