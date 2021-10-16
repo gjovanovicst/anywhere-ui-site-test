@@ -100,7 +100,7 @@ export default class extends AbstractView {
                   <div slot="item">
                     <div style="display: flex; align-items: center;">
                       <img part="flag-#=item.value.countryCode#" class="flag flag-#=item.value.countryCode#"
-                        style="margin-right: 10px; width: 20px;" src="/anywhere-ui-site-test/assets/images/flag/flag_placeholder.png"
+                        style="margin-right: 10px; width: 20px;" src="/assets/images/flag/flag_placeholder.png"
                         alt="#=item.value.country# Flag">
                       <b>#=item.label# (#=item.value.country#)</b>
                     </div>
