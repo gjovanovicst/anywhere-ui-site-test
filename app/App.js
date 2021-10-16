@@ -28,29 +28,28 @@ const navigateTo = (url) => {
 };
 
 const router = async () => {
-  const routes = [
-    {
+  const routes = [{
       path: "/",
       view: GetStarted,
     },
     {
-      path: "/listbox",
+      path: "/#/listbox",
       view: Listbox,
     },
     {
-      path: "/dropdown",
+      path: "/#/dropdown",
       view: Dropdown,
     },
     {
-      path: "/virtual-scroller",
+      path: "/#/virtual-scroller",
       view: VirtualScroller,
     },
     {
-      path: "/input-text",
+      path: "/#/input-text",
       view: InputText,
     },
     {
-      path: "/checkbox",
+      path: "/#/checkbox",
       view: Checkbox,
     },
   ];
