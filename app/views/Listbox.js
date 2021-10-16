@@ -1,5 +1,7 @@
 import AbstractView from "./AbstractView.js";
-import { Cities } from "../data/Cities.js";
+import {
+  Cities
+} from "../data/Cities.js";
 
 export default class extends AbstractView {
   constructor(params) {
@@ -16,7 +18,9 @@ export default class extends AbstractView {
       return obj;
     });
 
-    let virtualItems = Array.from({ length: 10000 }).map((v, i) => {
+    let virtualItems = Array.from({
+      length: 10000
+    }).map((v, i) => {
       return {
         label: "Item " + i,
         value: "Item " + i,
@@ -96,7 +100,7 @@ export default class extends AbstractView {
                   <div slot="item">
                     <div style="display: flex; align-items: center;">
                       <img part="flag-#=item.value.countryCode#" class="flag flag-#=item.value.countryCode#"
-                        style="margin-right: 10px; width: 20px;" src="assets/images/flag/flag_placeholder.png"
+                        style="margin-right: 10px; width: 20px;" src="/assets/images/flag/flag_placeholder.png"
                         alt="#=item.value.country# Flag">
                       <b>#=item.label# (#=item.value.country#)</b>
                     </div>
